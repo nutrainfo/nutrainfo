@@ -1,7 +1,9 @@
-const CACHE = 'nutrainfo-v1';
+const CACHE = 'nutrainfo-v2';
 const PRECACHE = [
   './',
   './index.html',
+  './style.css',
+  './app.js',
   './manifest.json',
   './foods.json'
 ];
