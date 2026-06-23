@@ -40,7 +40,7 @@
   --sh-hover: 0 8px 28px rgba(13,43,32,.13), 0 0 0 1px rgba(13,43,32,.06);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden;}
+html{scroll-behavior:smooth;font-size:16px;}
 body{font-family:var(--ff-sans);background:var(--ivory);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
 a{text-decoration:none;color:inherit;}
 img{display:block;max-width:100%;}
@@ -3374,11 +3374,11 @@ if(isInstalled){
 
 </script>
 <!-- PWA Install FAB -->
-<div id="pwa-fab" onclick="triggerPWAInstall()" title="Install NutraInfo App" style="display:flex;position:fixed;bottom:90px;right:20px;z-index:8999;align-items:center;gap:8px;padding:11px 18px;border-radius:var(--r-pill);background:linear-gradient(135deg,var(--gold),#A87826);color:#fff;font-family:var(--ff-sans);font-size:.78rem;font-weight:700;letter-spacing:.06em;border:none;cursor:pointer;box-shadow:0 4px 20px rgba(200,151,58,.45);transition:transform .18s,box-shadow .18s;">
+<div id="pwa-fab" onclick="triggerPWAInstall()" title="Install NutraInfo App" style="display:flex;position:fixed;bottom:90px;right:20px;z-index:8999;align-items:center;gap:8px;padding:11px 18px;border-radius:var(--r-pill);background:linear-gradient(135deg,var(--gold),#A87826);color:#fff;font-family:var(--ff-sans);font-size:.78rem;font-weight:700;letter-spacing:.06em;border:none;cursor:pointer;box-shadow:0 4px 20px rgba(200,151,58,.45);transition:box-shadow .18s;transform:translateZ(0);">
   <i class="ti ti-download" style="font-size:16px;"></i> Install App
 </div>
 <!-- NutraInfo Chatbot -->
-<div id="chatbot-widget" style="position:fixed!important;display:block!important;bottom:20px;right:20px;z-index:9000;font-family:var(--ff-sans);">
+<div id="chatbot-widget" style="position:fixed!important;display:block!important;bottom:20px;right:20px;z-index:9000;font-family:var(--ff-sans);transform:translateZ(0);">
   <div id="chatbot-toggle" onclick="toggleChatbot()" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--mint),var(--leaf));display:flex!important;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(30,138,94,.4);transition:transform .2s;">
     <i class="ti ti-message-circle" style="color:#fff;font-size:26px;"></i>
   </div>
