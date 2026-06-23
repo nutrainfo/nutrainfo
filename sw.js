@@ -1,9 +1,9 @@
 const CACHE = 'nutrainfo-v1';
 const PRECACHE = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/foods.json'
+  './',
+  './index.html',
+  './manifest.json',
+  './foods.json'
 ];
 
 self.addEventListener('install', e => {

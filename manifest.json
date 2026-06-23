@@ -2,7 +2,7 @@
   "name": "NutraInfo — Evidence-Based Nutrition",
   "short_name": "NutraInfo",
   "description": "India's most verified nutrition database — raw foods, cooked dishes, TDEE calculators, deficiency checker and more.",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#0D2B20",
   "theme_color": "#0D2B20",
