@@ -3294,6 +3294,11 @@ let isInstalled = false;
 // Check if already running as installed PWA
 if(window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true){
   isInstalled = true;
+  // Hide FAB — already installed
+  document.addEventListener('DOMContentLoaded', () => {
+    const fab = document.getElementById('pwa-fab');
+    if(fab) fab.style.display = 'none';
+  });
 }
 
 window.addEventListener('beforeinstallprompt', (e) => {
@@ -3369,7 +3374,7 @@ if(isInstalled){
 
 </script>
 <!-- PWA Install FAB -->
-<div id="pwa-fab" onclick="triggerPWAInstall()" title="Install NutraInfo App" style="display:none;position:fixed;bottom:90px;right:20px;z-index:8999;align-items:center;gap:8px;padding:11px 18px;border-radius:var(--r-pill);background:linear-gradient(135deg,var(--gold),#A87826);color:#fff;font-family:var(--ff-sans);font-size:.78rem;font-weight:700;letter-spacing:.06em;border:none;cursor:pointer;box-shadow:0 4px 20px rgba(200,151,58,.45);transition:transform .18s,box-shadow .18s;">
+<div id="pwa-fab" onclick="triggerPWAInstall()" title="Install NutraInfo App" style="display:flex;position:fixed;bottom:90px;right:20px;z-index:8999;align-items:center;gap:8px;padding:11px 18px;border-radius:var(--r-pill);background:linear-gradient(135deg,var(--gold),#A87826);color:#fff;font-family:var(--ff-sans);font-size:.78rem;font-weight:700;letter-spacing:.06em;border:none;cursor:pointer;box-shadow:0 4px 20px rgba(200,151,58,.45);transition:transform .18s,box-shadow .18s;">
   <i class="ti ti-download" style="font-size:16px;"></i> Install App
 </div>
 <!-- NutraInfo Chatbot -->
