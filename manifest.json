@@ -1,0 +1,29 @@
+{
+  "name": "NutraInfo — Evidence-Based Nutrition",
+  "short_name": "NutraInfo",
+  "description": "India's most verified nutrition database — raw foods, cooked dishes, TDEE calculators, deficiency checker and more.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0D2B20",
+  "theme_color": "#0D2B20",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "https://api.iconify.design/tabler/leaf.svg?color=%231E8A5E&width=192&height=192",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://api.iconify.design/tabler/leaf.svg?color=%231E8A5E&width=512&height=512",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["health", "fitness", "food"],
+  "lang": "en-IN",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+}
