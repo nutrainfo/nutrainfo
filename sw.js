@@ -1,16 +1,9 @@
-const CACHE = 'nutrainfo-v2';
-const PRECACHE = [
-  './',
-  './index.html',
-  './style.css',
-  './app.js',
-  './manifest.json',
-  './foods.json'
-];
+const CACHE = 'nutrainfo-v3';
+const STATIC = ['./foods.json'];
 
 self.addEventListener('install', e => {
   e.waitUntil(
-    caches.open(CACHE).then(c => c.addAll(PRECACHE)).then(() => self.skipWaiting())
+    caches.open(CACHE).then(c => c.addAll(STATIC)).then(() => self.skipWaiting())
   );
 });
 
@@ -25,15 +18,34 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return;
   if (!e.request.url.startsWith('http')) return;
-  e.respondWith(
-    caches.match(e.request).then(cached => {
-      if (cached) return cached;
-      return fetch(e.request).then(res => {
-        if (!res || res.status !== 200 || res.type === 'opaque') return res;
-        const clone = res.clone();
-        caches.open(CACHE).then(c => c.put(e.request, clone));
+
+  const url = new URL(e.request.url);
+  const isFoodsJson = url.pathname.endsWith('foods.json');
+
+  if (isFoodsJson) {
+    // Cache-first for large data file
+    e.respondWith(
+      caches.match(e.request).then(cached => {
+        if (cached) return cached;
+        return fetch(e.request).then(res => {
+          if (res && res.status === 200) {
+            const clone = res.clone();
+            caches.open(CACHE).then(c => c.put(e.request, clone));
+          }
+          return res;
+        });
+      })
+    );
+  } else {
+    // Network-first for HTML/CSS/JS so updates deploy instantly
+    e.respondWith(
+      fetch(e.request).then(res => {
+        if (res && res.status === 200 && res.type !== 'opaque') {
+          const clone = res.clone();
+          caches.open(CACHE).then(c => c.put(e.request, clone));
+        }
         return res;
-      });
-    }).catch(() => caches.match('/index.html'))
-  );
+      }).catch(() => caches.match(e.request))
+    );
+  }
 });
